@@ -165,6 +165,14 @@
 			<filename>NotoSans-Bold.ttf</filename>
 			<size>120</size>
 		</font>
+
+		<!-- andres: volume size font -->
+		<font>
+			<name>volume</name>
+			<filename>NotoSans-Bold.ttf</filename>
+			<size>460</size>
+		</font>
+
 		<font>
 			<name>Mono26</name>
 			<filename>NotoMono-Regular.ttf</filename>

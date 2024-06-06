@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1143">
-	<defaultcontrol always="true">1</defaultcontrol>
-	<include>OpenClose_FadeSlide_Right</include>
-	<controls>
+
+	<!-- andres: close videoinfodialog -->
+	<onload>Action(Close)</onload>
+
+	<!-- <defaultcontrol always="true">1</defaultcontrol> -->
+	<!-- <include>OpenClose_FadeSlide_Right</include> -->
+	<!-- <controls>
 		<control type="group">
 			<bottom>0</bottom>
 			<height>550</height>
@@ -221,5 +225,5 @@
 				</control>
 			</control>
 		</control>
-	</controls>
+	</controls> -->
 </window>

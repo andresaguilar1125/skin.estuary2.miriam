@@ -101,6 +101,14 @@
 						<icon>icons/settings/coreelec.png</icon>
 						<visible>System.HasAddon(service.coreelec.settings)</visible>
 					</item>
+
+					<!-- andres: power menu dialog included on settings -->
+					<item>
+						<label>$LOCALIZE[13012]</label>
+						<icon>icons/settings/coreelec.png</icon>
+						<onclick>Quit</onclick>
+					</item>	
+
 				</content>
 			</control>
 		</control>

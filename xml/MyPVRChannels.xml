@@ -2,7 +2,16 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
+
+	<!-- andres: include only big titles view53 -->
 	<views>50,51,52,53</views>
+
+	<!-- andres: force biglist view53 on each event -->
+	<onload>Container.SetViewMode(53)</onload>
+
+	<!-- andres: load channels when show screen -->
+	<onload>PlayPvrTV</onload>
+
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>DefaultBackground</include>
@@ -22,7 +31,7 @@
 				<include>Visible_Right</include>
 				<animation effect="slide" end="56,0" time="0" condition="String.IsEqual(Skin.AspectRatio,21:9)">Conditional</animation>
 				<include>PVRChannelsPanel</include>
-				<include>PVRPanelViewInfoPanel</include>
+				<!-- <include>PVRPanelViewInfoPanel</include> -->
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
@@ -36,39 +45,13 @@
 					<param name="top" value="-20" />
 					<param name="flipx" value="true" />
 				</include>
-				<control type="scrollbar" id="73">
-					<left>-65</left>
-					<top>list_y_offset</top>
-					<width>12</width>
-					<bottom>list_y_offset</bottom>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-					<animation effect="zoom" start="100,100" end="50,100" center="-53,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation>
-				</control>
+				<!-- andres: disable scrollbar for all views-->
 				<include>PVRInfoPanel</include>
 			</control>
-			<include content="TopBar">
-				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsPVRChannelsVar]" />
-			</include>
-			<include content="BottomBar">
-				<param name="info_visible" value="true" />
-			</include>
-			<control type="group">
-				<bottom>0</bottom>
-				<height>70</height>
-				<right>-15</right>
-				<include content="MediaFlagsInfoDialogRight">
-					<param name="align" value="right" />
-					<param name="pvr" value="true" />
-				</include>
-			</control>
+			<!-- andres: remove content topbar -->
+			<!-- andres: disable bottombar -->
 			<include>PVRChannelNumberInput</include>
-			<include>MediaMenuMouseOverlay</include>
-			<control type="group">
-				<include>MediaMenuCommon</include>
-				<include>PVRSideBar</include>
-			</control>
+			<!-- andres : disable menu bar  -->
 		</control>
 		<control type="label" id="29">
 			<font></font>

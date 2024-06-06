@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+
+	<!-- andres : close dialog on tvchannels screen to disable context menu -->
+	<onload condition="Window.IsActive(DialogContextMenu.xml) + Window.IsActive(MyPVRChannels.xml)">Action(Close)</onload>
+	<onload condition="Window.IsActive(DialogContextMenu.xml) + Window.IsActive(MyPVRChannels.xml)">Notification(ContextMenu, triggered)</onload>
+
 	<defaultcontrol always="true">996</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<coordinates>

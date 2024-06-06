@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+
+	<!-- andres: close dialog -->
+	<onload>Action(close)</onload>
+
 	<defaultcontrol always="true">11</defaultcontrol>
 	<controls>
-		<include>PVRChannelNumberInput</include>
+		<!-- <include>PVRChannelNumberInput</include>
 		<control type="group">
 			<include>Animation_BottomFadeIn</include>
 			<control type="group">
@@ -343,6 +347,6 @@
 				</control>
 				<include>PVRChannelInfoPanel</include>
 			</control>
-		</control>
+		</control> -->
 	</controls>
 </window>

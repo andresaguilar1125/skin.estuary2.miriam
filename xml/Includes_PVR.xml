@@ -109,6 +109,8 @@
 			<orientation>vertical</orientation>
 		</control>
 	</include>
+
+	<!-- andres: right panel of channels -->
 	<include name="PVRInfoPanel">
 		<control type="group">
 			<visible>!ListItem.IsFolder</visible>
@@ -122,23 +124,13 @@
 					<fadetime>200</fadetime>
 					<visible>Skin.HasSetting(EnablePvrIconBG)</visible>
 				</control>
-				<control type="image">
-					<left>5</left>
-					<right>5</right>
-					<top>5</top>
-					<bottom>5</bottom>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<texture fallback="DefaultTVShows.png">$INFO[ListItem.Icon]</texture>
-					<fadetime>200</fadetime>
-					<visible>String.IsEmpty(Control.GetLabel(24001))</visible>
-				</control>
 				<control type="image" id="24001">
 					<left>5</left>
 					<right>5</right>
 					<top>5</top>
 					<bottom>5</bottom>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<texture>$VAR[PVRArtworksVarInfo]</texture>
+					<texture>##VAR[PVRArtworksVarInfo]</texture>
 					<fadetime>200</fadetime>
 				</control>
 				<control type="group">
@@ -170,14 +162,14 @@
 				<control type="label">
 					<height>60</height>
 					<font>font45</font>
-					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] : ]$INFO[ListItem.ChannelName]</label>
+					<label>##INFO[ListItem.ChannelNumberLabel,[B],[/B] : ]##INFO[ListItem.ChannelName]</label>
 					<scroll>true</scroll>
 				</control>
 				<control type="label">
 					<top>60</top>
 					<height>60</height>
 					<font>font32_title</font>
-					<label>$INFO[ListItem.Title]</label>
+					<label>##INFO[ListItem.Title]</label>
 					<scroll>true</scroll>
 					<visible>!ListItem.HasEpg</visible>
 				</control>
@@ -185,7 +177,7 @@
 					<top>60</top>
 					<height>60</height>
 					<font>font32_title</font>
-					<label>$INFO[ListItem.EpgEventTitle]</label>
+					<label>##INFO[ListItem.EpgEventTitle]</label>
 					<scroll>true</scroll>
 					<visible>ListItem.HasEpg</visible>
 				</control>
@@ -199,41 +191,49 @@
 					<top>3</top>
 					<height>104</height>
 					<width>134</width>
-					<texture colordiffuse="$VAR[PvrIconBGVar]">colors/white.png</texture>
+					<texture colordiffuse="##VAR[PvrIconBGVar]">colors/white.png</texture>
 					<visible>Skin.HasSetting(EnablePvrIconBG)</visible>
 				</control>
+
+
+				<control type="label">
+					<align>center</align>
+					<top>60</top>
+					<height>60</height>
+					<font>lyr4</font>
+					<label>$INFO[System.Time]</label>
+				</control>
 				<control type="image">
-					<top>5</top>
-					<left>2</left>
-					<height>100</height>
-					<width>130</width>
-					<align>right</align>
+					<top>260</top>
+					<height>200</height>
+					<align>center</align>
 					<aligny>center</aligny>
 					<aspectratio>keep</aspectratio>
 					<texture fallback="DefaultTVShows.png">$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="label">
+					<align>center</align>
+					<top>520</top>
 					<height>60</height>
-					<left>150</left>
-					<font>font45</font>
+					<font>lyr4</font>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<scroll>true</scroll>
+					<textcolor>$VAR[SkinColorVar]</textcolor>
 				</control>
 				<control type="label">
-					<top>60</top>
+					<align>center</align>
+					<top>620</top>
 					<height>60</height>
-					<left>150</left>
-					<font>font32_title</font>
-					<label>$INFO[ListItem.Title]</label>
-					<scroll>true</scroll>
+					<font>lyr4</font>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					<visible>!ListItem.HasEpg</visible>
 				</control>
+
 				<control type="label">
 					<top>60</top>
 					<left>150</left>
 					<height>60</height>
 					<font>font32_title</font>
-					<label>$INFO[ListItem.EpgEventTitle]</label>
+					<label>##INFO[ListItem.EpgEventTitle]</label>
 					<scroll>true</scroll>
 					<visible>ListItem.HasEpg</visible>
 				</control>
@@ -243,14 +243,14 @@
 				<left>0</left>
 				<width>440</width>
 				<control type="label">
-					<label>$VAR[SeasonEpisodeLabel2]</label>
-					<textcolor>$VAR[SkinColorVar]</textcolor>
+					<label>##VAR[SeasonEpisodeLabel2]</label>
+					<textcolor>##VAR[SkinColorVar]</textcolor>
 					<scroll>true</scroll>
 				</control>
 				<control type="label">
 					<top>45</top>
 					<font>font25_title</font>
-					<label>$LOCALIZE[515]$INFO[ListItem.Genre, : ,]</label>
+					<label>$LOCALIZE[515]##INFO[ListItem.Genre, : ,]</label>
 					<textcolor>grey</textcolor>
 					<scroll>true</scroll>
 					<visible>!String.IsEmpty(ListItem.Genre)</visible>
@@ -259,7 +259,7 @@
 					<visible>ListItem.HasEpg + Window.IsVisible(tvchannels)</visible>
 					<top>110</top>
 					<control type="label">
-						<label>$INFO[ListItem.StartTime]</label>
+						<label>##INFO[ListItem.StartTime]</label>
 						<font>font12</font>
 					</control>
 					<control type="progress">
@@ -272,15 +272,15 @@
 					</control>
 					<control type="label">
 						<align>right</align>
-						<label>$INFO[ListItem.EndTime]</label>
+						<label>##INFO[ListItem.EndTime]</label>
 						<font>font12</font>
 					</control>
 					<control type="textbox">
 						<top>55</top>
 						<height>120</height>
 						<font>font10</font>
-						<textcolor>$VAR[SkinColorVar]</textcolor>
-						<label>[B]$LOCALIZE[19031] $INFO[ListItem.NextStarttime,(, - ]$INFO[ListItem.NextEndtime,,)] : [/B] $INFO[ListItem.NextTitle,[COLOR white],[/COLOR]]</label>
+						<textcolor>##VAR[SkinColorVar]</textcolor>
+						<label>[B]$LOCALIZE[19031] ##INFO[ListItem.NextStarttime,(, - ]##INFO[ListItem.NextEndtime,,)] : [/B] ##INFO[ListItem.NextTitle,[COLOR white],[/COLOR]]</label>
 						<visible>!String.IsEmpty(ListItem.NextTitle)</visible>
 					</control>
 				</control>
@@ -289,18 +289,18 @@
 					<top>95</top>
 					<control type="label">
 						<font>font12</font>
-						<label>$INFO[ListItem.Date,$LOCALIZE[577] : ,]</label>
+						<label>##INFO[ListItem.Date,$LOCALIZE[577] : ,]</label>
 						<scroll>true</scroll>
 					</control>
 					<control type="label">
 						<top>35</top>
 						<font>font12</font>
-						<label>$INFO[ListItem.Size,$LOCALIZE[21802] : ,]</label>
+						<label>##INFO[ListItem.Size,$LOCALIZE[21802] : ,]</label>
 					</control>
 					<control type="label">
 						<top>70</top>
 						<font>font12</font>
-						<label>$INFO[ListItem.ExpirationDate,$LOCALIZE[19299] : , ]$INFO[ListItem.ExpirationTime]</label>
+						<label>##INFO[ListItem.ExpirationDate,$LOCALIZE[19299] : , ]##INFO[ListItem.ExpirationTime]</label>
 						<visible>!String.IsEmpty(ListItem.ExpirationDate)</visible>
 					</control>
 					<control type="group">
@@ -320,24 +320,10 @@
 							<height>20</height>
 							<align>right</align>
 							<font>font12</font>
-							<label>$INFO[ListItem.PercentPlayed,,%]</label>
+							<label>##INFO[ListItem.PercentPlayed,,%]</label>
 						</control>
 					</control>
 				</control>
-				<control type="image">
-					<top>270</top>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<height>120</height>
-					<width>440</width>
-					<texture>$VAR[ClearLogoVar]</texture>
-				</control>
-			</control>
-			<control type="textbox">
-				<top>670</top>
-				<width>830</width>
-				<bottom>90</bottom>
-				<label fallback="19055">$VAR[PVRMetadataPlotVar]</label>
-				<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 			</control>
 		</control>
 		<control type="group">
@@ -347,7 +333,7 @@
 				<top>10</top>
 				<width>830</width>
 				<height>262</height>
-				<label>$LOCALIZE[19076] ($INFO[Container(5000).NumItems,[B],[/B] $LOCALIZE[31036]])</label>
+				<label>$LOCALIZE[19076] (##INFO[Container(5000).NumItems,[B],[/B] $LOCALIZE[31036]])</label>
 				<font>font37</font>
 				<visible>!ListItem.IsParentFolder + Integer.IsGreater(Container(5000).NumItems,1)</visible>
 			</control>
@@ -355,7 +341,7 @@
 				<top>10</top>
 				<width>830</width>
 				<height>262</height>
-				<label>$LOCALIZE[19076] ($INFO[Container(5000).NumItems,[B],[/B] $LOCALIZE[31037]])</label>
+				<label>$LOCALIZE[19076] (##INFO[Container(5000).NumItems,[B],[/B] $LOCALIZE[31037]])</label>
 				<font>font37</font>
 				<visible>!ListItem.IsParentFolder + Integer.IsEqual(Container(5000).NumItems,1)</visible>
 			</control>
@@ -374,8 +360,8 @@
 							<height>90</height>
 							<width>830</width>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Date,[COLOR grey],[/COLOR][CR]]$INFO[ListItem.Label] $VAR[SeasonEpisodeLabel]</label>
-							<shadowcolor>$VAR[ShadowColorVar]</shadowcolor>
+							<label>##INFO[ListItem.Date,[COLOR grey],[/COLOR][CR]]##INFO[ListItem.Label] ##VAR[SeasonEpisodeLabel]</label>
+							<shadowcolor>##VAR[ShadowColorVar]</shadowcolor>
 						</control>
 					</focusedlayout>
 					<itemlayout height="100" width="780">
@@ -384,15 +370,16 @@
 							<height>90</height>
 							<width>830</width>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Date,[COLOR grey],[/COLOR][CR]]$INFO[ListItem.Label] $VAR[SeasonEpisodeLabel]</label>
-							<shadowcolor>$VAR[ShadowColorVar]</shadowcolor>
+							<label>##INFO[ListItem.Date,[COLOR grey],[/COLOR][CR]]##INFO[ListItem.Label] ##VAR[SeasonEpisodeLabel]</label>
+							<shadowcolor>##VAR[ShadowColorVar]</shadowcolor>
 						</control>
 					</itemlayout>
-					<content sortby="date" sortorder="$PARAM[folder_sortorder]">$INFO[ListItem.FilenameAndPath]</content>
+					<content sortby="date" sortorder="$PARAM[folder_sortorder]">##INFO[ListItem.FilenameAndPath]</content>
 				</control>
 			</control>
 		</control>
 	</include>
+
 	<include name="RDSInfoLine">
 		<control type="grouplist">
 			<visible>!String.IsEmpty($PARAM[value])</visible>
@@ -770,6 +757,8 @@
 			</itemlayout>
 		</control>
 	</include>
+
+	<!-- andres: increase size of font -->
 	<include name="PVRChannelsBigList">
 		<control type="fixedlist" id="53">
 			<left>0</left>
@@ -823,7 +812,7 @@
 						<width>130</width>
 						<align>center</align>
 						<aligny>center</aligny>
-						<font>font45_title</font>
+						<font>font_MainMenu</font>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
 						<shadowcolor>$VAR[ShadowColorVar]</shadowcolor>
 						<visible>!Skin.HasSetting(ShowPVRChannelNumbers)</visible>
@@ -841,11 +830,11 @@
 						</control>
 						<control type="label">
 							<left>210</left>
-							<top>3</top>
-							<height>30</height>
+							<top>-30</top>
+							<height>120</height>
 							<right>15</right>
-							<aligny>top</aligny>
-							<font>font14</font>
+							<aligny>center</aligny>
+							<font>font_MainMenu</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>$VAR[ShadowColorVar]</shadowcolor>
 						</control>
@@ -917,7 +906,7 @@
 						<width>130</width>
 						<align>center</align>
 						<aligny>center</aligny>
-						<font>font45_title</font>
+						<font>font52_title</font>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
 						<textcolor>$VAR[SkinColorVar]</textcolor>
 						<shadowcolor>$VAR[ShadowColorVar]</shadowcolor>
@@ -940,7 +929,7 @@
 							<height>30</height>
 							<right>10</right>
 							<aligny>top</aligny>
-							<font>font14</font>
+							<font>font37_bold</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>$VAR[ShadowColorVar]</shadowcolor>
 						</control>
@@ -987,6 +976,7 @@
 			</itemlayout>
 		</control>
 	</include>
+	
 	<include name="PVRChannelsPanel">
 		<control type="panel" id="52">
 			<centerleft>50%</centerleft>
@@ -1487,6 +1477,8 @@
 			</control>
 		</control>
 	</include>
+
+
 	<include name="PVRChannelNumberInput">
 		<control type="label">
 			<left>0</left>
@@ -1496,9 +1488,13 @@
 			<label>$INFO[PVR.ChannelNumberInput]</label>
 			<shadowcolor>black</shadowcolor>
 			<align>center</align>
-			<font>WeatherTemp</font>
+
+			<!-- andres: added biggest font for channel -->
+			<font>volume</font>
+			
 			<aligny>center</aligny>
 			<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
 		</control>
 	</include>
+
 </includes>

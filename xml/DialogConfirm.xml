@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+
+	<!-- andres : close dialog on tvchannels and startup screen -->
+	<onload condition="Window.IsActive(DialogConfirm.xml) + Window.IsActive(MyPVRChannels.xml)">Action(Close)</onload>
+	<onload condition="Window.IsActive(DialogConfirm.xml) + Window.IsActive(Startup.xml)">Action(Close)</onload>
+
+	<!-- andres: if buffering failed play tv again -->
+	<onload condition="Window.IsActive(DialogConfirm.xml) + Window.IsActive(MyPVRChannels.xml)">PlayPvrTV</onload>
+	<onload condition="Window.IsActive(DialogConfirm.xml) + Window.IsActive(Startup.xml)">PlayPvrTV</onload>
+
 	<include>Animation_DialogPopupOpenClose</include>
 	<depth>DepthDialog+</depth>
 	<controls>
+
+		<!-- andres: hide if not on tvchannels or startup screen -->
+		<visible>!Window.IsActive(MyPVRChannels.xml)</visible>
+		<visible>!Window.IsActive(Startup.xml)</visible>
+
 		<control type="group">
 			<height>390</height>
 			<centertop>50%</centertop>
@@ -51,4 +65,3 @@
 		</control>
 	</controls>
 </window>
-
