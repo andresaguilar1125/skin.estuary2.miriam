@@ -3,7 +3,7 @@ It's strongly recommended to install the skin via the "Kodinerds Repo", as this 
 you install an addon from a repository and not from ZIP.
 
 ## Repository URL
-To install the Kodinerds repository visit the page "https://repo.kodinerds.net", download the repository zip (red button) and install it. After that you can install the skin directly from the repository under "Look & Feel", "Skins".
+To install the Kodinerds repository visit the page "https://repo.kodinerds.net", download the repository zip (red button) and install it. After that you can install the skin directly from the repository under "Look & Feel", "Skins". Or just install the addons and dependecies for the skin. Dependencies can be installed without its python libraries
 
 
 
@@ -69,12 +69,16 @@ To install the Kodinerds repository visit the page "https://repo.kodinerds.net",
 ## Disable apps
 To disable on kenwood tv apps on TV Quick Actions Pro enable ADB able to run some apps and create following adb commands
 
+Disable apps on startup or wakeup screen
 - pm disable-user --user 0 com.disney.disneyplus
 - pm disable-user --user 0 com.apple.atve.androidtv.appletv
 - pm disable-user --user 0 com.wbd.stream
 - pm disable-user --user 0 com.amazon.amazonvideo.livingroom
 - pm disable-user --user 0 com.netflix.ninja
 - pm disable-user --user 0 com.google.android.youtube.tvmusic
+
+Force stop kodi on power button keystroke
+- am force-stop org.xbmc.kodi
 
 ## Keymaps 
 Use keymap-editor addon on kodi if keymaps.xml file not working properly (Edit > Global > Windows > Open Shutdown Menu > Select Button). Must be disabled on TV Quick Actions Pro. Use the Keycode ID
@@ -85,4 +89,3 @@ Use keymap-editor addon on kodi if keymaps.xml file not working properly (Edit >
 
 Remap the following keys
 - Fullscreenlivetv : Back key > Live TV
-- TVChannels: ContextMenu > Nothing
