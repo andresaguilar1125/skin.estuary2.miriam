@@ -79,6 +79,7 @@ Disable apps on startup or wakeup screen
 
 Force stop kodi on power button keystroke
 - am force-stop org.xbmc.kodi
+- adb shell reboot --poweroff
 
 ## Keymaps 
 Use keymap-editor addon on kodi if keymaps.xml file not working properly (Edit > Global > Windows > Open Shutdown Menu > Select Button). Must be disabled on TV Quick Actions Pro. Use the Keycode ID
